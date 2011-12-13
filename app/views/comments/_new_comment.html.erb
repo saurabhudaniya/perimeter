@@ -1,0 +1,19 @@
+<br/>
+<div id="new_comment" class="comments<%=comment.id%>">
+    <% unless current_user.image.blank? %>
+          <%= image_tag(current_user.image.url,:height =>'50')%>
+        <% else %>
+          <%= image_tag("user.png",:height =>'50',:width =>'50')%>
+        <%end%>
+      * <b><%= comment.name %>  at about <font color ="000066"><%= time_ago_in_words(comment.created_at)%></font> ago said : </b>
+      <p>
+      <div  style="text-align: center;"><%= comment.comment %></div>
+      <br/>
+      <div id="comment<%=comment.id%>">
+      <%= render :partial => "likes/new" ,:locals =>{ :cmnt => comment, :lik => like, :current_user => current_user, :check => comment.exists(current_user.id) , :count => comment.likes.count } %>
+      </div>
+     <div align="right">
+          <%= link_to (image_tag("delete.png",:height => '20')),user_article_comment_path(current_user,article,comment), :method => :delete  ,:remote =>true  %>
+        </div>
+      </p>
+  </div>

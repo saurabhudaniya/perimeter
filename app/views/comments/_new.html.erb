@@ -1,0 +1,33 @@
+<h2> Add a Comment </h2>
+<p>
+  <% if flash[:notice]%>
+    <font color="red">
+      <b>
+        <%= flash[:notice][1..((flash[:notice].length)-2)] %>
+      </b>
+    </font>
+</p>
+<%end %>
+<%= form_for [user, article, comment], :remote => true  do |f|%>
+  
+  <table>
+    <tr>
+      <td></td>
+      <td><%= f.hidden_field :name, :value => user.name, :readonly => true %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.hidden_field :user_id, :value => user.id, :readonly => true %></td>
+    </tr>
+    <tr>
+      <td><b>Comment</b></td>
+      <td><%=f.text_area :comment ,:rows => 10 %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit "Comment" , :class => 'comments' %></td>
+    </tr>
+    
+  </table>
+<% end %>
+

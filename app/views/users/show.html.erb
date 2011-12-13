@@ -1,0 +1,40 @@
+<div id="content">
+  <p id="notice"><%= notice %></p>
+  <div id ="showpage" align="center">
+    <p>
+      <font color ="#505050 " size=4>
+        <p>
+        <% if @user.image? %>
+        <%= image_tag(@user.image.url ,:height => '200' ,:class => 'display_image') %>
+        <%-end-%>
+        </p>
+        <b>Signed in as:</b>
+        <%= @user.name %>
+        <p>
+        <input type ="button" class="show" value="show details"></input>
+        </p>
+        <p>
+        <input type ="button" class="show_password" value="Change password"></input>
+        </p>
+    </p>
+    <div class ="hidden_div">
+      
+    <%= render :partial => "users/details" , :locals => {:user => @user} %>
+      <input type ="button" value="hide" class ="hide"></input>
+      
+    </div>
+    <div class ="hidden_password_div" bgimage="round">
+      
+    <%= render :partial => "users/change_password" , :locals => {:user => @user} %>
+      <input type ="button" value="hide" class ="hide_password_div"></input>
+   
+    </div>
+    </font>
+    <hr></hr>
+    <p>
+  
+    </p>
+  </div>
+</div>
+
+

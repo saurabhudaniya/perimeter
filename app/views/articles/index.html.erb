@@ -1,0 +1,35 @@
+<div id="content">
+  <% if flash[:notice]%>
+    <p>
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+    <table>
+  <b> Your articles are as follow</b>
+  
+  <tr>
+    <td>
+  <% @articles.each do |a|%>
+   
+    <div class = "userarticles<%=a.id%>" id="article" >
+      <p><%= link_to (image_tag(a.image,:height => '150',:width => '150')),user_article_path(@user,a) %></p>
+      <p><b> <%=link_to a.title[0..20],user_article_path(@user,a) %></b></p>
+       <p> <%= "#{a.description[0..30]}.." %></p>
+       <p> <%= link_to (image_tag("delete.png",:height => '20')),user_article_path(@user,a), :method => :delete ,:remote => true %></p>
+    </div>
+   
+  <% end %>
+    </td>
+    </tr>
+  <tr>
+    <td>
+  <b><%= will_paginate @articles %></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+  <input type="button" value="Back" ONCLICK="history.go(-1)"/>
+    </td>
+  </tr>
+    </table>
+</div>

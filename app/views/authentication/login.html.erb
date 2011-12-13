@@ -1,0 +1,77 @@
+<%= stylesheet_link_tag    "default" %>
+ <%= javascript_include_tag "application" %>
+<div id="wrapper">
+<div id="header">
+<table>
+<tr>
+<td>
+<%= image_tag ('perimeter.jpg'),:height=> 80 %>
+</td>
+<td>
+<h1>PERIMETER </h1>
+</td>
+</tr>
+</table>
+</div>
+<div id="page">
+<div id="sidebar">
+<ul>
+<h1>Welcome to perimeter</h1>
+
+<h1>
+<p>
+UsInG PeRimETer yOU
+cAn CreAtE Your AcCouNt And aDd MultIple Products And KeeP TracK Of YouR ArticLeS
+<br></br>
+<br></br>
+</p>
+</h1>
+</ul>
+</div>
+
+<div id="content" >
+<font color="red">
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+</font>
+  <div  class ="login_div">
+<%= form_tag (authentication_login_path) do %>
+<table align ="center">
+<tr>
+<td >
+<b>Username</b>
+</td>
+<td><%= text_field_tag :username %></td>
+</tr>
+<tr>
+<td >
+<b>Password</b>
+</td>
+<td><%= password_field_tag :password %></td>
+</tr>
+<tr>
+<td></td>
+<td><p><input type="submit" value= "Sign In" class ="a" ></input></p></td>
+</tr>
+<tr>
+<td></td>
+
+    <% end %>
+<td> <input type="button" class ="login_button" value="New to perimeter ?"> </input></td>
+    </tr>
+</table>
+</div>
+  <div class="hidden_div">
+    <%= render :partial => "authentication/new" , :locals => {:user => @user} %>
+    <p>
+    <input type="button" class="signup_button" value="Already a member ?"></input>
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+

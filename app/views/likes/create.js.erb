@@ -1,0 +1,1 @@
+$("#comment<%=@comment.id%>").replaceWith("<%= escape_javascript( render :partial => "likes/new_like" ,:locals => { :cmnt => @comment, :lik => @like, :current_user => current_user ,:check => @comment.exists(current_user.id), :count => @comment.likes.count }) %>") 

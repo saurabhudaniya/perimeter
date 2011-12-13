@@ -1,0 +1,52 @@
+<br></br>
+<%= stylesheet_link_tag    "default" %>
+
+<%= form_for user , :html =>{:multipart => true} ,:url => { :action => "create" } do |f|%>
+<table align="center">
+<tr>
+<td>
+<font color="red">
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+</td>
+</tr>
+<tr>
+<td>Username</td>
+<td> <%=f.text_field :name %></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><%=f.text_area :address %></td>
+</tr>
+<tr>
+<td  >Contact</td>
+<td  "><%=f.text_field :contact %></td>
+</tr>
+<tr>
+<td>Email</td>
+<td><%=f.text_field :email %></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><%=f.password_field :password %></td>
+</tr>
+<tr>
+<td>Confirm Password</td>
+<td><%=password_field_tag :password %></td>
+</tr>
+<tr>
+<td>Display Image</td>
+<td><%=f.file_field :image %></td>
+</tr>
+<tr>
+<td></td>
+<td><p><%= f.submit "Create" %></p></td>
+</tr>
+
+
+</table>
+<% end %>
+<br></br>
+
+

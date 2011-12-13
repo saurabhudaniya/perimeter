@@ -1,0 +1,14 @@
+<div id="content">
+  <div id="chat">
+
+    <% @chats.each do |chat| %>
+    <p/>
+       <%if chat.username == current_user.name%>
+      <b><font color="blue"><%=  chat.username %></b></font> <%= chat.chat%>
+      <%else%>
+      <b><font color="red"><%=  chat.username %></b></font> <%= chat.chat%>
+      <%end%>
+    <%end%>
+
+  </div>
+</div>

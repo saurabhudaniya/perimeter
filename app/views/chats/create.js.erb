@@ -1,0 +1,1 @@
+$("#chat").append("<%= escape_javascript(render :partial => "chats/new_post", :locals => {:chat => @chat }) %>").slideDown("slow");

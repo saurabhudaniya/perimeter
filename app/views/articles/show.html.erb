@@ -1,0 +1,21 @@
+<div id="content">
+  <div id="showpage">
+    <p><b><h1>Title :     <%= @article.title %></h1></b></p>
+    <hr></hr> 
+    <p><b>Description : </b>  <%= @article.description %></p>
+    <hr></hr>
+    <p>
+      <b>Image  : </b><%= image_tag(@article.image) %>
+    </p>
+    <hr></hr>
+    <p>
+      <input type="button" value="Back" ONCLICK="history.go(-1)"/>
+    </p>
+  </div>
+  <div id ="comments">
+  <%= render :partial => "comments/index", :locals => { :article => @article , :comments => @comments ,:user => @user, :like => @like } %>
+  </div>
+  <p>
+    <%= render :partial => "comments/new", :locals => { :user => @user ,:article => @article , :comment => @comment } %>
+  </p>
+</div>

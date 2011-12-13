@@ -1,0 +1,6 @@
+
+
+$("#comments").append("<%= escape_javascript(render :partial => "comments/new_comment", :locals => {:comment => @comment ,:like => @like ,:article => @article }) %>").slideDown("slow");
+
+$("#comments_count").replaceWith("<%= escape_javascript( render :partial => "comments/comment_count" ,:locals => { :comments => @comments}) %>")
+

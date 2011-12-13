@@ -1,0 +1,18 @@
+<div id= "content">
+<h2>Sorry we can't give you full information for security reasons </h2>
+<p><input type="button" value="Back" ONCLICK="history.go(-1)"/></p>
+<table id="customers">
+<th>Name</th>
+<th>address</th>
+<th>contact</th>
+<th>Email</th>
+<% @allusers.each do |f| %>
+<tr>
+<td><%= f.name %></td>
+<td><%= "#{f.address[0..3]}.." %></td>
+<td><%= "#{(f.contact.to_s)[0..2]}.." %></td>
+<td><%= "#{f.email[0..3]}.." %></td>
+</tr>
+<% end %>
+</table>
+</div>

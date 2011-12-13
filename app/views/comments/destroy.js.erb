@@ -1,0 +1,3 @@
+$(".comments<%=@comment.id%>").slideUp("slow");
+$("#comments_count").replaceWith("<%= escape_javascript( render :partial => "comments/comment_count" ,:locals => { :comments => @comments}) %>")
+ 

@@ -1,0 +1,32 @@
+<div id="content">
+  <%- if flash[:notice] -%>
+    <p>
+      <%= flash[:notice] %>
+    </p>
+    <%- end -%>
+  <table id="customers">
+    <th><b>Title</b></th>
+    <th><b>Description</b></th>
+    <th><b>Image</b></th>
+    <th><b>Options</b></th>
+    <%- @all_articles.each do |a| -%>
+      <tr>
+        <td><%= link_to a.title,all_articles_path(a) ,:class =>'link' %></td>
+        <td><%= "#{a.description[0..15]}.." %></td>
+        <td><%= image_tag(a.image,:height => '32',:width =>'32') %></td>
+        <td>
+          <% if @user.id == a.user_id%>
+            <%=  link_to (image_tag("delete.png",:height => '20')),user_article_path(@user,a),:confirm  => 'Are you sure?', :method => :delete %>
+          <%end%>
+        </td>
+      </tr>
+    <% end %>
+      <tr>
+        <td>
+          <br/>
+          <b><%= will_paginate @all_articles %></b>
+        </td>
+      </tr>
+  </table>
+  <input type="button" value="Back" ONCLICK="history.go(-1)"/>
+</div>

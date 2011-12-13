@@ -1,0 +1,13 @@
+<div id="content">
+hi <b><%= @user.name %></b>
+<%= form_for([@user, @product]) do |f| %>
+<p>
+Product Name <%= f.text_field :name %>
+<p>
+Product Description <%= f.text_area :description %>
+<p>
+<%= f.submit  "Create Product" %>|
+<%=link_to "back",@user %>
+<% end %>
+</div>
+

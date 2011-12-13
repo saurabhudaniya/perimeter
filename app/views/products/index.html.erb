@@ -1,0 +1,19 @@
+<div id="content">
+<b>All products for <%= @user.name %> are as follow</b>
+<p>
+<table id="customers">
+<th>Name</th>
+<th>Description</th>
+<%  @products.each do |f| %>
+<tr>
+<td>
+<%= link_to f.name,user_product_path(@user,f) %>
+</td>
+<td>
+<%= "#{f.description[0..15]}.." %>
+</td>
+</tr>
+<% end %>
+</table>
+<%=link_to "back",@user %>
+</div>

@@ -1,0 +1,24 @@
+<div id="content">
+  <% if flash[:notice] %>
+  <font color ="red"> <b> <%= flash[:notice][1..((flash[:notice].length)-2)] %></b></font>
+  <%end%>
+<%= form_for ([@user, @article])  do |f|%>
+<table>
+<tr>
+<td><b>Title</b></td>
+<td><%= f.text_field :title %></td>
+</tr>
+<tr>
+<td><b>Description</b></td>
+<td><%= f.text_area :description %></td>
+</tr>
+<tr>
+<td><b>Image link</b></td>
+<td><%= f.text_field :image %></td>
+</tr>
+<tr>
+<td><%= f.submit "Create" %> </td>
+</tr>
+</table>
+<% end %>
+</div>

@@ -1,0 +1,9 @@
+<%= @reply = Comment.new %>
+
+<%= form_for @reply do |f|%>
+      <%= f.hidden_field :name, :value => user.name, :readonly => true %>
+      <%= f.hidden_field :user_id, :value => user.id, :readonly => true %>
+      <%= f.hidden_field :reply_id, :value => comment.id, :readonly => true %>
+      <%=f.text_area :comment ,:rows => 2 %>
+      <%= f.submit "Reply" , :class => 'comments' %>
+<% end %>

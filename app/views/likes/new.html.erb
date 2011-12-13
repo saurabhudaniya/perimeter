@@ -1,0 +1,5 @@
+<%= form_for (@like]) do |f| %>
+<%= hidden_field :user_id , :value => @user.id %>
+<%= hidden_field :like , :value=> "like"%>
+<%= f.submit "like" %>
+<% end %>

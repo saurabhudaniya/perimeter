@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Abc</title>
+    <%= stylesheet_link_tag    "default" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+
+  <div id="wrapper">
+    <div id="header">
+      <table align="center">
+        <tr>
+          <td>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            <%=link_to (image_tag ('perimeter.png'),:height=> 130,:width =>650),user_path(@current_user) %>
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="page">
+      <%= yield %>
+      <div id="sidebar">
+
+        <%= link_to "log out",authentication_logout_path %>
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag(@current_user.image.url,:height => 70)),user_path(@current_user) %>
+        <ul>
+
+          <li> <%= link_to 'Create Product' , new_user_product_path(@user),:class => 'link'  %></li>
+          <li> <%= link_to 'Show Products' , user_products_path(@user),:class => 'link'  %> </li>
+          <li>  <%= link_to 'Create Article' , new_user_article_path(@user),:class => 'link'  %></li>
+
+          <li>  <%= link_to 'Show Articles' , user_articles_path(@user),:class => 'link'  %></li>
+          <li>  <%= link_to 'See all Perimeter Users', all_users_path ,:class => 'link'  %></li>
+          <li>  <%= link_to 'See all perimeter articles', all_articles_path ,:class => 'link'  %> </li>
+          <li>  <%= link_to 'Chat with perimeter users',chats_path %> </li>
+
+
+        </ul>
+        <p>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+          <br> </br>
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+      </body>
+      </html>

@@ -1,0 +1,39 @@
+<ul>
+  <span id="comments_count"><b>Showing <%=  pluralize(comments.count,"Comment") %></b></span>
+
+  <p>
+  <div id ="comments">
+    <%- comments.each do |comment| -%>
+    
+      <div id ="comment" class="comments<%=comment.id%>" >
+        
+        <%  @comment_user=User.where("id = ?", comment.user_id).first %>
+        <% unless @comment_user.image.nil? %>
+          <%= image_tag(@comment_user.image.url,:height =>'50')%>
+        <% else %>
+          <%= image_tag("user.png",:height =>'50',:width =>'50')%>
+        <%end%>
+        * <b><%= @comment_user.name %>  at about <font color ="000066"><%= time_ago_in_words(comment.created_at)%></font> ago said : </b>
+        <p>
+        <div  style="text-align: center;"><%= comment.comment %></div>
+        </p>
+
+        <div id ="comment<%= comment.id %>" align="left">
+          &nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp<%= render :partial => "likes/new" ,:locals =>{ :cmnt => comment, :lik => like, :current_user => current_user, :check => comment.exists(current_user.id) , :count => comment.likes.count } %>
+        </div>
+        <div align="right">
+          <% if @comment_user.id == current_user.id %>
+          <%= link_to (image_tag("delete.png",:height => '20')),user_article_comment_path(current_user,@article,comment), :method => :delete ,:remote =>true  %>
+          <%end%>
+        </div>
+       
+      </div>
+
+      <br></br>
+      
+    <% end %>
+  </div>
+</p>
+</ul>
+
+

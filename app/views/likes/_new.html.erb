@@ -1,0 +1,17 @@
+<%if check%>
+  <div align ="left">
+    <%= link_to image_tag("unlike.gif"), like_path(check), :method => :delete,:remote =>true%>
+    <%= who_like_this(count) %>
+  </div>
+<% else %>
+  <div align ="left">
+    <%= form_for lik , :remote => true do |f| %>
+      <%= f.hidden_field :user_id , :value => current_user.id %>
+      <%= f.hidden_field :like , :value => "like" %>
+      <%= f.hidden_field :comment_id , :value=> cmnt.id %>
+      <%= image_submit_tag("like.gif")%>
+      <%= pluralize(count, 'person') %> like this.
+    <% end %>
+  </div>
+<%end%>
+
