@@ -8,7 +8,7 @@
 <th>Email</th>
 <% @allusers.each do |f| %>
 <tr>
-<td><%= f.name %></td>
+<td><%=link_to f.name,:action =>"showuser" , :controller => "all" ,:id => f %></td>
 <td><%= "#{f.address[0..3]}.." %></td>
 <td><%= "#{(f.contact.to_s)[0..2]}.." %></td>
 <td><%= "#{f.email[0..3]}.." %></td>

@@ -18,6 +18,8 @@
   end
 
   def showuser
+    @user = User.find(params[:id])
+    @new_message = current_user.messages.build
   end
 
   def showarticle

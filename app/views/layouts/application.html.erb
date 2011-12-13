@@ -43,8 +43,12 @@
           <li>  <%= link_to 'See all Perimeter Users', all_users_path ,:class => 'link'  %></li>
           <li>  <%= link_to 'See all perimeter articles', all_articles_path ,:class => 'link'  %> </li>
           <li>  <%= link_to 'Discussion Wall',chats_path %> </li>
-
-
+          <% @unread_messages = Message.where(["reciever_id = ? AND status = 'unread'",@current_user]) %>
+          <%  if @unread_messages %>
+          <li> you have  <%= pluralize("(#{@unread_messages.count})","new message") %></li>
+           <% else %>
+          <li> you have no new messages </li>
+          <% end  %>
         </ul>
         <p>
           <br> </br>

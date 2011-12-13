@@ -52,6 +52,11 @@
        $(".hidden_div").slideUp("slow")
        $(".show").show("slow")
    });
+   $(".show_message").live('click',function(){
+        
+       $(".hidden_div").slideDown("slow")
+   
+   });
    
    $(".hide_password_div").live('click',function(){
 

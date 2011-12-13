@@ -7,8 +7,13 @@ skip_before_filter :current_user
 
 
   def login
+    if session[:current_user]
+      redirect_to user_path(current_user)
+    else
+    
    @user = User.new
    render :layout => false
+   end
   end
 
   def signup

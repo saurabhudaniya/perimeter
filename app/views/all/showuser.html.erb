@@ -1,2 +1,27 @@
-<h1>All#showuser</h1>
-<p>Find me in app/views/all/showuser.html.erb</p>
+<div id="content">
+  <p id="notice"><%= notice %></p>
+  <div id ="showpage" align="center">
+    <p>
+      <font color ="#505050 " size=4>
+        <p>
+        <% if @user.image? %>
+        <%= image_tag(@user.image.url ,:height => '200' ,:class => 'display_image') %>
+        <%-end-%>
+        </p>
+        <b>User name:</b>
+        <%= @user.name %>
+        <p>
+        
+        <input type ="button" class="show_message" value="Send a message"></input>
+      
+    <div class ="hidden_div">
+      
+    <%= render :partial => "messages/new" , :locals => {:reciever => @user} %>
+      <input type ="button" value="hide" class ="hide"></input>
+      
+    </div>
+   
+  </div>
+</div>
+
+

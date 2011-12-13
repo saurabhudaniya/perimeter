@@ -1,14 +1,16 @@
 Abc::Application.routes.draw do
 
+
+
  resources :chats
 
   resources :likes
 
   match 'all/users' =>    'all#users'
-  
   match '/all/articles.:id' => 'all#showarticle'
   match 'all/articles' => 'all#articles'
   match 'all/products' => 'all#products'
+  match 'all/users/:id' => 'all#showuser'
   
   resources :all
   resources :articles
@@ -19,8 +21,9 @@ Abc::Application.routes.draw do
     resources :articles do
       resources :comments
     end
-    
     resources :products
+    resources :messages
+    
   end
   match 'authentication/login' => 'authentication#check'
 
