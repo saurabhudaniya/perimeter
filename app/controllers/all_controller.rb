@@ -1,4 +1,4 @@
-class AllController < ApplicationController
+ class AllController < ApplicationController
   before_filter :find_products
 
   def find_products
