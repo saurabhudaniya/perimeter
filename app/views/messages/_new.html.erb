@@ -1,0 +1,26 @@
+<div>
+  <%= form_for [current_user,@new_message] do |f| %>
+  <table>
+    
+    <tr>
+      <td>Title</td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td>Message </td>
+      <td><%= f.text_area :body ,:rows => 4%></td>
+    </tr>
+    <tr>
+      <td><b><%= f.hidden_field :reciever_id , :value => reciever.id %></b></td>
+      <td><%= f.hidden_field :status , :value => "unread" %></td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit "send" %>
+      </td>
+    </tr>
+    
+        
+  </table>
+  <% end  %>
+</div>
