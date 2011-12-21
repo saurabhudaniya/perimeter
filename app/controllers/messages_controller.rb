@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
-    @messages = current_user.messages.all
+    @user = current_user
+    @messages = Message.where("reciever_id =?",current_user.id)
   end
 
   def new
@@ -8,6 +9,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+   
     @new_message = current_user.messages.build(params[:message])
     if @new_message.save
       flash[:notice] = "Message sent successfully"
@@ -29,6 +31,9 @@ class MessagesController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @message = Message.find(params[:id])
+    @message.update_attributes(:status => "read")
   end
 
 end

@@ -1,2 +1,22 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<div id="content">
+<table width="100%">
+<% @messages.each do |message| %>
+  <tr>
+    <td>
+      <b><%= message.title %></b>
+    </td>
+    <td>
+      by <%= message.sender%>
+    </td>
+    <td>
+      <% if message.status == "unread" %>
+      <%= link_to "show",user_message_path(@user,message) %>
+      <font color="red">(new)</font>
+      <% else %>
+      <%= link_to "show",user_message_path(@user,message) %>
+      <% end %>
+    </td>
+  </tr>
+<%  end %>
+</table>
+</div>

@@ -45,9 +45,9 @@
           <li>  <%= link_to 'Discussion Wall',chats_path %> </li>
           <% @unread_messages = Message.where(["reciever_id = ? AND status = 'unread'",@current_user]) %>
           <%  if @unread_messages %>
-          <li> you have  <%= pluralize("(#{@unread_messages.count})","new message") %></li>
+          <li> <%= link_to "you have  #{pluralize("(#{@unread_messages.count})","new message")}",user_messages_path(@current_user) %></li>
            <% else %>
-          <li> you have no new messages </li>
+          <li> <%= link_to "you have no new messages",user_messages_path(@current_user) %> </li>
           <% end  %>
         </ul>
         <p>
