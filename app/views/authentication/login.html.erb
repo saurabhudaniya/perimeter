@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag    "default" %>
  <%= javascript_include_tag "application" %>
+<div class="overlay"></div>
 <div id="wrapper">
 <div id="header">
 <table>
@@ -33,12 +34,14 @@ cAn CreAtE Your AcCouNt And aDd MultIple Products And KeeP TracK Of YouR ArticLe
 </div>
 
 <div id="content" >
+  <div class="signupPopup">
 <font color="red">
-<% if flash[:notice] %>
-<%= flash[:notice] %>
-<% end %>
+
 </font>
   <div  class ="login_div">
+    <% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
 <%= form_tag (authentication_login_path) do %>
 <table align ="center">
 <tr>
@@ -72,6 +75,7 @@ cAn CreAtE Your AcCouNt And aDd MultIple Products And KeeP TracK Of YouR ArticLe
     </p>
   </div>
 </div>
+  </div>
 </div>
 </div>
 

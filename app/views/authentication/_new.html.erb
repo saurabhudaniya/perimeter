@@ -6,9 +6,7 @@
 <tr>
 <td>
 <font color="red">
-<% if flash[:notice] %>
-<%= flash[:notice] %>
-<% end %>
+
 </td>
 </tr>
 <tr>
@@ -17,7 +15,7 @@
 </tr>
 <tr>
 <td>Address</td>
-<td><%=f.text_area :address %></td>
+<td><%=f.text_area :address ,:rows => 2, :cols => 30%></td>
 </tr>
 <tr>
 <td  >Contact</td>
